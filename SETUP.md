@@ -52,8 +52,9 @@ Execution failed for task ':compileKotlin'.
 ## 🚀 How to Use
 
 ### Prerequisites
-- **Java 21** must be used (NOT Java 25 or later)
-- Located at: `/home/codespace/java/21.0.10-ms/`
+- **Java 21** must be used (NOT Java 25 or later, NOT Java 17)
+- Linux: Located at: `/home/codespace/java/21.0.10-ms/`
+- Windows: Download from https://www.oracle.com/java/technologies/downloads/#java21
 
 ### Build the Backend
 
@@ -75,24 +76,39 @@ export JAVA_HOME=/home/codespace/java/21.0.10-ms
 
 ### Run in IntelliJ IDEA
 
-1. **Configure Project SDK:**
+#### ⚠️ IMPORTANT: First-Time Setup
+
+**If you're on Windows:**
+1. Run: `setup-java21.bat` in the project root
+2. This will automatically:
+   - Find Java 21 on your system
+   - Create `gradle.properties` with correct configuration
+   - Guide you through IntelliJ setup
+
+**If on Linux/Mac:**
+1. Open the project in IntelliJ
+2. Proceed to "Configure Project SDK" below
+
+#### Configure Project SDK:
    - Open: File → Project Structure → Project
    - Set Project SDK to: Java 21 (openjdk-21.0.10)
+   - Set Language Level to: 21
    - Click OK
 
-2. **Configure Gradle SDK:**
+#### Configure Gradle SDK:
    - Open: File → Settings → Build, Execution, Deployment → Gradle
-   - Set Gradle JVM to: Project SDK (Java 21)
+   - Set Gradle JVM to: **Project SDK** (Java 21)
    - Click OK
 
-3. **Build the project:**
-   - Click: Build → Build Project
-   - Or use keyboard shortcut: Ctrl+F9 / Cmd+F9
+#### Reload Project:
+   - Right-click on `backend` module in Project view
+   - Click: `Reload Gradle Project`
+   - Wait for sync to complete
 
-4. **Run the application:**
+#### Build & Run:
+   - Click: Build → Build Project (Ctrl+F9)
    - Click: Run → Run 'IntelliHeartApplication'
-   - Or find the main class in: `com.damumed.intelliheart.IntelliHeartApplication`
-   - Application starts on port 8080
+   - Or: Right-click main class → Run
 
 ### Access the API
 
